@@ -1,0 +1,38 @@
+@use "abstract/" as *;
+
+.container {
+  padding-inline: 1rem;
+  padding-block: 1rem;
+}
+
+.btn {
+  background-color: $primaryColor;
+  color: $whiteColor;
+  padding: 0.5rem 1.25rem;
+  border-radius: 3rem;
+}
+
+@include sm {
+  .container {
+    padding-inline: 2rem;
+    background-color: rgb(240, 209, 209);
+  }
+}
+@include md {
+  .container {
+    padding-inline: 4rem;
+    background-color: rgb(240, 239, 214);
+  }
+}
+@include lg {
+  .container {
+    padding-inline: 6rem;
+    background-color: rgb(230, 241, 226);
+  }
+}
+@include xl {
+  .container {
+    padding-inline: 8rem;
+    background-color: rgb(224, 214, 250);
+  }
+}
