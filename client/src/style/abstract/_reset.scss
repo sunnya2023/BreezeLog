@@ -78,6 +78,8 @@ textarea,
 select {
   font-family: inherit;
   font-size: inherit;
+  outline: none;
+  border: none;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */

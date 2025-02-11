@@ -1,0 +1,42 @@
+@use "../abstract/" as *;
+
+.home-container {
+  .direction {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: $fs;
+
+    .text-blue {
+      color: $primaryColor;
+      font-weight: 500;
+    }
+  }
+
+  .head-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 1rem;
+
+    .write {
+      display: none;
+      @include sm {
+        display: flex;
+        align-items: center;
+        width: 15rem;
+        gap: 0.5rem;
+
+        .write-icon {
+          width: 2rem;
+          height: 2rem;
+          color: $secondColor;
+        }
+        span {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

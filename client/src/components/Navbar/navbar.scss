@@ -6,6 +6,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 
   .logo {
     display: flex;
@@ -24,18 +25,25 @@ nav {
   }
 
   .navlinks {
+    display: flex;
+    align-items: center;
+
+    padding: 3rem;
     &.show_link {
-      display: flex;
+      background: $whiteColor;
+      width: 100%;
+
+      // display: flex;
       flex-direction: column;
       align-items: center;
-
       position: absolute;
-      top: 30%;
+      top: 15%;
       right: 50%;
       left: 50%;
       transform: translateX(-50%);
       gap: 2rem;
       cursor: pointer;
+      z-index: 100;
     }
     &.hide_link {
       display: none;
@@ -53,6 +61,10 @@ nav {
         font-weight: 600;
         color: $primaryColor;
         transform: scale(1.1);
+      }
+      .active-nav {
+        font-weight: 600;
+        color: $primaryColor;
       }
     }
   }

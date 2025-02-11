@@ -3,6 +3,13 @@ import { IoClose, IoMenu } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 import "./navbar.scss";
 import Image from "../Image";
+import { menuList } from "../../data";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
@@ -27,28 +34,38 @@ const Navbar = () => {
         <span>BreezeLog</span>
       </Link>
 
-      <ul className={`navlinks ${open ? "show_link" : "hide_link"}`}>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/">Trending</NavLink>
-        </li>
-        <li>
-          <NavLink to="/">Popular</NavLink>
-        </li>
-        <li>
-          <NavLink to="/">About</NavLink>
-        </li>
-        <li>
-          <NavLink to="/" className={open ? "" : "btn"}>
-            Login
-          </NavLink>
-        </li>
-      </ul>
+      <div className="test">
+        <ul className={`navlinks ${open ? "show_link" : "hide_link"}`}>
+          {menuList.map(({ id, path, name }) => {
+            return (
+              <li key={id}>
+                <NavLink
+                  to={path}
+                  // className={({ isActive }) =>
+                  //   `${isActive && name !== "login" ? "active-nav" : ""}${
+                  //     name === "login" ? "btn" : ""
+                  //   }`
+                  // }
+                  className={({ isActive }) => (isActive ? "active-nav" : "")}
+                >
+                  {name}
+                </NavLink>
+              </li>
+            );
+          })}
+          <SignedOut>
+            <Link to="/login" className={"btn"}>
+              Login
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </ul>
 
-      <div className="menu-icons" onClick={() => setOpen(!open)}>
-        {open ? <IoClose /> : <IoMenu />}
+        <div className="menu-icons" onClick={() => setOpen(!open)}>
+          {open ? <IoClose /> : <IoMenu />}
+        </div>
       </div>
     </nav>
   );

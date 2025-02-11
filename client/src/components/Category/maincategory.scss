@@ -1,0 +1,48 @@
+@use "../../style/abstract/" as *;
+
+.maincategory {
+  display: none;
+  @include sm {
+    padding: 1.2rem 1.5rem;
+    border-radius: 1rem;
+    background-color: $whiteColor;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      .nowrap {
+        &.active {
+          background-color: $primaryColor;
+          border-radius: 25px;
+          padding: 0.5rem 2rem;
+          color: $whiteColor;
+        }
+      }
+    }
+
+    .boundary {
+      font-weight: 500;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 25px;
+      background-color: $gray-100;
+      padding: 0.5rem 1rem;
+      .search-icon {
+        color: $gray-300;
+      }
+      input {
+        background-color: transparent;
+      }
+    }
+  }
+}
